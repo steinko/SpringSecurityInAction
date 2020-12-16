@@ -1,4 +1,5 @@
 package com.laurentiuspilca.ssia;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import org.springframework.web.context.WebApplicationContext;
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 
 
 @ExtendWith(SpringExtension.class)
@@ -48,7 +50,7 @@ public class MainIT {
     	 String url =  "http://localhost:" + localServerPort + "/hello";	
     	 
     	 given()
-    	  .queryParam("user","steinko")
+    	  .auth().with(SecurityMockMvcRequestPostProcessors.httpBasic("Stein", "12345"))
           .webAppContextSetup(webApplicationContext)
         .when()
            .get(url)

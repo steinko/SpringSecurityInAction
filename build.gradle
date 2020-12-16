@@ -4,10 +4,7 @@ plugins {
 }
 
 repositories {
-    mavenLocal()
-    maven {
-        url = uri('https://repo.maven.apache.org/maven2/')
-    }
+    jcenter()
 }
 
 dependencies {
@@ -19,12 +16,10 @@ dependencies {
     testImplementation  'io.rest-assured:rest-assured-common:4.3.1'
 }
 
-group = 'com.laurentiuspilca'
-version = '0.0.1-SNAPSHOT'
-description = 'Hello World with user and password'
-java.sourceCompatibility = JavaVersion.VERSION_1_8
 
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
+test {
+    useJUnitPlatform()
 }
+
+java.sourceCompatibility = JavaVersion.VERSION_11
+
