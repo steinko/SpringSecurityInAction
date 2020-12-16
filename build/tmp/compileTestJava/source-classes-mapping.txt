@@ -1,4 +1,0 @@
-com/laurentiuspilca/ssia/MainIT.java
- com.laurentiuspilca.ssia.MainIT
-com/laurentiuspilca/ssia/MainTests.java
- com.laurentiuspilca.ssia.MainTests
